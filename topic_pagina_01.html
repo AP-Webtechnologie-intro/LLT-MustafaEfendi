@@ -22,6 +22,19 @@
 
   <!-- eigen geschreven css voor jouw html-bestand -->
   <link href="./CSS/style.css" rel="stylesheet">
+
+    <!--Leaflet-->
+
+  <!--Leaflet css bestand-->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<!--Mapstyl.css bestand-->
+<link rel="stylesheet" href="css/mapStyle.css">
+
+  <!--Leaflet.js javascript-->
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!--mapScript.js script-->
+  <script defer src="js/mapScript2.js"></script>
 </head>
 
 <body>
@@ -123,7 +136,10 @@
                           de vers gemaakte noedelsoep die samenkomt met de
                           knapperige eendenfilet met chinese 10-spices saus. Ik
                           ga dit nog veel zeggen maar het is een
-                          smaakexplosie! 
+                          smaakexplosie! Bai Wei heeft een speciale plek in mijn hart, 
+                          dus die heb ik dan ook een plekje gegeven op de kaart beneden.
+                          Het gehele van Chinatown heb ik het rood aangeduid. 
+                          Het is altijd wel een leuke ervarning om daar rond te lopen. 
                           
                         </p>
                     </article>
@@ -203,6 +219,11 @@
                         </section>
 
                         <!---Leaflet met aanduiding Chinatown-->
+                        <section id="map" class="row">
+                          <!-- in de apMap zal er via Leaflet een map ingeladen worden -->
+                          <div id="chinaMap" class="col-12 mb-3"></div>
+                        </section>
+                
 
 
                  </main>
