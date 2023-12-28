@@ -77,3 +77,19 @@ html, body {
 .article-paragraph {
   margin-bottom: 20px;
 }
+
+/* centered section form*/
+
+.centered-section {
+  width: 80%; 
+  margin-left: auto; 
+  text-align: left; 
+ 
+}
+
+/* title uploads links*/
+
+.title-left {
+  text-align: center;
+  margin-right: 18%;
+}

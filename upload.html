@@ -8,7 +8,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homepage</title>
+  <title>Upload pagina</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +35,52 @@
 
   <!--mapScript.js script-->
   <script defer src="./js/mapScript.js"></script>
+
+
+
+
+  <!--Bytscale upload widget API-->
+  <script src="https://js.bytescale.com/upload-widget/v4"></script>
+  <script>
+    // -----
+    // Configuration:
+    // https://www.bytescale.com/docs/upload-widget#configuration
+    // -----
+    const options = {
+      apiKey: "public_W142iPbA1gigxbVt4M8xzMjAwPS1", // This is your API key.
+
+      maxFileCount: 10,
+
+      // Dropzone configuration:
+      layout: "inline",
+      container: "#my-container",
+
+      showFinishButton: true,
+
+      // To remove the 'finish' button:
+      // showFinishButton: false,
+      // onUpdate: ({ uploadedFiles, pendingFiles, failedFiles }) => {
+      //   const fileUrls = uploadedFiles.map(x => x.fileUrl).join("\n");
+      //   if (fileUrls.length > 0) {
+      //     alert(`File(s) uploaded:\n\n${fileUrls}`);
+      //   }
+      // }
+    };
+
+    // import * as Bytescale from "@bytescale/upload-widget";
+    Bytescale.UploadWidget.open(options).then(
+      files => {
+        const fileUrls = files.map(x => x.fileUrl).join("\n");
+        const success = fileUrls.length === 0
+          ? "No file selected."
+          : `File uploaded:\n\n${fileUrls}`;
+        alert(success);
+      },
+      error => {
+        alert(error);
+      }
+    );
+  </script>
 </head>
 
 <body>
@@ -83,24 +129,19 @@
         </div>
       </nav>
       <header>
-        <h3 class="text-center">
-          Contact webdesigner/admin
+        <h3 class="text-center title-left">
+            Upload foto's van jullie ervaringen
         </h3>
       </header>      
       <div class="container">
         <div class="row">
           <main class="col-md-9">
             <section>
-            <h3 class="">Contactformulier </h3>
-              <p class="mb-0">Vul het contactformulier in voor tips of andere berichten.</p>
-              <p>Alle velden zijn verplicht.</p>
+            <h3 class="text-center">Upload formulier </h3>
+              <p class="mb-0 text-center">Upload hier jouw foto's, misschien komen ze dan op de website terecht.</p>
             </section>
-            
-            <section id="map" class="row">
-              <div id="apMap" class="col-12 mb-3" style="height: 400px;"></div>
-            </section>
-    
-            <section>
+                
+            <section class="centered-section">
               <form>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Naam</label>
@@ -111,17 +152,10 @@
                   <label for="exampleFormControlInput1">Emailadres</label>
                   <input type="email" class="form-control" id="idEmail" placeholder="naam@voorbeeld.be">
                 </div>
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1">Gericht naar</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Admin - Mustafa Vermeulen</option>
-                    <option>webdesigner - Joske Selvi </option>
-                  </select>
                 </div>
-                <div class="form-group section-margin-bottom">
-                  <label for="exampleFormControlTextarea1">Bericht</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-                </div>
+                <div id="my-container" style="position: relative; margin: 0 auto; width: 80%; height: 350px;">
+               </div>
+               
                 <div>
                   <button type="submit" class="btn btn-primary red-button">Verzend</button>
                 </div>
